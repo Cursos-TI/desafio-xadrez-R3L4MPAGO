@@ -1,32 +1,62 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+void Torre(int n){
+    if (n > 0){
+        printf("Torre: Direita (%d)\n", n);
+        Torre(n - 1);
 
-int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
+    }
+}
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+void Bispo(int n){
+    if (n > 0){
+        printf("Bispo: Cima (%d)\n", n);
+        
+        for (int i = 1; i <= 1; i++){
+            printf("Bispo: Direita (%d)\n", n);
+        }
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+        Bispo(n - 1);
+    }
+}
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+void Rainha(int n){
+    if (n > 0){
+        printf("Rainha: Esquerda (%d)\n", n);
+        Rainha(n - 1);
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+    }
+}
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+void Cavalo(int n){
+    for (int i = 1; i <= n; i++){
+        for (int j = 1; j <= 2; j++){
+            printf("Cavalo: Cima (%d)\n", i);
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+        }
+        printf("Cavalo: Direita (%d)\n\n", i);
+    }
+}
+
+int main(){
+
+    int torre_casas = 6;
+    int bispo_casas = 5;
+    int rainha_casas = 8;
+    int cavalo_casas = 3;
+
+    printf("Movimento do Cavalo:\n");
+    Cavalo(cavalo_casas);
+
+    printf("Movimento da Torre:\n");
+    Torre(torre_casas);
+
+    printf("\nMovimento do Bispo:\n");
+    Bispo(bispo_casas);
+
+    printf("\nMovimento da Rainha:\n");
+    Rainha(rainha_casas);
 
     return 0;
+    
 }
